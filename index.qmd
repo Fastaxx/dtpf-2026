@@ -1,8 +1,7 @@
 ---
 pagetitle: "DTPF 2026 Talk"
 lang: en
-# Scenario: 15 min talk + 5 min questions. Each slide carries its spoken text and its time in the
-# speaker notes (press S). Notation for the whole deck: n points from Omega- to Omega+,
+# Scenario: 15 min talk + 5 min questions. Notation for the whole deck: n points from Omega- to Omega+,
 # [[a]] = a+ - a-, mdot = rho(u - w).n on each side, q = -lambda grad T.
 format:
   revealjs:
@@ -595,7 +594,7 @@ Hannoun N., Alexiades V., Mai T. Z. (2005). A reference solution for phase chang
 ![](figures/disk_area.svg){fig-alt="Area of the dissolving body against time on the time axis of Huang et al. (2021) for two meshes"}
 
 ::: {.g2cap}
-[A body dissolving under its own plume]{.galh} — the history of Huang et al. (2021); close aggreement to the $8/5$-power law.
+[A body dissolving under its own plume]{.galh} — the history of Huang et al. (2021); close agreement to the $8/5$-power law.
 :::
 
 ::: {.g2ref}
