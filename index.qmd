@@ -672,6 +672,7 @@ louis.libat2@univ-eiffel.fr
 - **A space-time Cartesian cut-cell method for two-phase diffusion problems using a two-fluid approach.** *J. Comput. Phys.* (2026), to be published - hal-05457114.
 - **An analysis of symmetry and positive definiteness in a two-fluid cut-cell method.** Preprint (2026) - hal-05757396.
 - **A two-fluid space-time cut-cell method for heat and mass transfer.** *ICCFD13*, Milan (2026) - hal-05732098.
+- **A hybrid two-fluid cut-cell method for convective heat and mass transfer across moving sharp interfaces.** *Computers & Fluids* (VSI ICCFD13), in preparation.
 - **A local volume conservation criterion and tearing algorithm for sharp interface flows with phase change: Part A - VOF parametrization; Part B - front-tracking parametrization.** In preparation (2026).
 
 [With C. Selçuk, E. Chénier, V. Le Chenadec.]{.endwith}
