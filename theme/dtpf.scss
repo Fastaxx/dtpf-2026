@@ -420,3 +420,16 @@ $presentation-title-slide-text-align: left;
 .reveal .g2col video { height: 215px; }
 .reveal .g2col img { height: 240px; }
 .reveal .g2cap { margin-top: 0; }
+.reveal .noadv { font-size: 0.68em; margin-top: 0.45em; padding: 0.1em 0.6em; border-left: 4px solid $shf-blue; }
+.reveal .noadv strong { color: $shf-blue; }
+.reveal img.nwloop { width: 88%; max-width: 88%; margin-top: 0.3em; }
+.reveal img.nwloop { width: 80%; max-width: 80%; margin-top: 0.15em; }
+.reveal .noadv { margin-top: 0.35em; }
+.reveal .clodef { font-size: 0.56em; line-height: 1.4; color: $muted; margin: 0 0 0.35em 0; }
+.reveal .defsline { margin-bottom: 0.15em; }
+.reveal .defsline2 { font-size: 0.62em; color: $muted; text-align: center; margin: 0 0 0.5em 0; }
+.reveal .consequence { margin-top: 0.45em; }
+.reveal .twobox { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.reveal .clodef { font-size: 0.5em; margin-bottom: 0.25em; }
+.reveal .cloname { font-size: 0.6em; }
+.reveal .box mjx-container[display="true"] { margin: 0.4em 0; }
