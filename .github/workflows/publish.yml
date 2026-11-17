@@ -45,13 +45,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: PDF (every click step shown)
+      - name: PDF (every click step shown, animations frozen on chosen frames)
         run: |
+          python3 print_html.py index.html print.html
           npx -y decktape@3.12.0 reveal --size 1280x720 --pause 1500 --load-pause 2000 \
             --chrome-arg=--no-sandbox \
             --pdf-author "Louis Libat" \
             --pdf-title "Numerical modelling of heat and mass transfer with phase change using a sharp-interface two-fluid method" \
-            "index.html?fragments=false" "_site/$STEM.pdf"
+            "print.html?fragments=false" "_site/$STEM.pdf"
       - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
