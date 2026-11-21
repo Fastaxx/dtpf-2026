@@ -433,3 +433,7 @@ $presentation-title-slide-text-align: left;
 .reveal .clodef { font-size: 0.5em; margin-bottom: 0.25em; }
 .reveal .cloname { font-size: 0.6em; }
 .reveal .box mjx-container[display="true"] { margin: 0.4em 0; }
+// ---- all together: boiling bubble with a dissolved gas ----------------------------------------------
+.reveal .bovid video { display: block; width: 100%; max-height: 455px; margin: 0 auto; object-fit: contain; }
+.reveal .bovid + .punch { font-size: 0.66em; margin-top: 0.2em; }
+.reveal .bonote { position: absolute; left: 0; bottom: 34px; font-size: 0.42em; color: $muted; }
