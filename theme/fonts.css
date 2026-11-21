@@ -1,0 +1,7 @@
+/* Latin Modern (the LaTeX/Beamer faces), shipped with the deck so it renders offline. */
+@font-face { font-family: "LM Sans"; src: url("fonts/lmsans10-regular.otf"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "LM Sans"; src: url("fonts/lmsans10-bold.otf"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "LM Sans"; src: url("fonts/lmsans10-oblique.otf"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "LM Sans"; src: url("fonts/lmsans10-boldoblique.otf"); font-weight: 700; font-style: italic; }
+@font-face { font-family: "LM Roman"; src: url("fonts/lmroman10-regular.otf"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "LM Roman"; src: url("fonts/lmroman10-italic.otf"); font-weight: 400; font-style: italic; }

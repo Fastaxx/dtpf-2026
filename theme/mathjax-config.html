@@ -1,0 +1,20 @@
+<script>
+// MathJax 3 configuration. One notation for the whole deck:
+// n points from Omega^- to Omega^+, [[a]] = a^+ - a^-, mdot = rho^±(u^± - w)·n.
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    macros: {
+      jump: ['[\\![\\, #1 \\,]\\!]', 1],
+      mdot: '\\dot m',
+      vect: ['\\mathbf{#1}', 1],
+      He: '\\mathrm{He}',
+      Pe: '\\mathrm{Pe}',
+      d: '\\mathrm{d}',
+      lbl: ['\\quad{\\small\\color{dimgray}\\textsf{#1}}', 1]
+    }
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
