@@ -615,6 +615,26 @@ Huang J. M., Shelley M. J., Stein D. B. (2021). A stable and accurate scheme for
 :::
 
 
+## All together: a rising, growing vapour bubble with a dissolved gas
+
+::: {.r10sub}
+Flow, heat, species and phase change solved together on each time step. Vapour bubble in a superheated liquid holding a dissolved gas ($\He = 5$); fluids of Hysing et al. (2009) case 1.
+:::
+
+::: {.bovid}
+```{=html}
+<video data-autoplay loop muted playsinline poster="figures/boiling_poster.png" src="figures/boiling.mp4"></video>
+```
+:::
+
+::: {.punch}
+The gas fills the bubble and lowers the interface temperature: **it slows the evaporation down** (mean $\mdot$: $5.6 \to 3.8$).
+:::
+
+::: {.bonote}
+First prototype (hybrid two-fluid scheme), $h = 1/20$, $\Delta t = 0.02$.
+:::
+
 ## Take-home messages
 
 ::: {.thcols}
