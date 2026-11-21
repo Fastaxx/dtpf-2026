@@ -1,0 +1,482 @@
+/*-- scss:defaults --*/
+// DTPF 2026 talk: Beamer-like look (Latin Modern Sans, CM maths) on the SHF colours.
+$shf-blue:   #004f80;   // sampled from the conference banner
+$shf-sky:    #69a2cd;
+$vir-teal:   #21918c;   // viridis samples, as in the paper figures
+$vir-purple: #3b528b;
+$ink:        #1b1f24;
+$muted:      #5b6470;
+$paper:      #ffffff;
+$panel:      #f3f6f9;
+
+$font-family-sans-serif: "LM Sans", "Latin Modern Sans", "CMU Sans Serif", sans-serif;
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: $shf-blue;
+$presentation-font-size-root: 34px;
+$presentation-heading-font: $font-family-sans-serif;
+$presentation-heading-color: $shf-blue;
+$presentation-heading-font-weight: 700;
+$presentation-h2-font-size: 1.12em;
+$presentation-heading-text-transform: none;
+$presentation-heading-letter-spacing: 0;
+$presentation-title-slide-text-align: left;
+
+/*-- scss:rules --*/
+.reveal { font-feature-settings: "kern"; }
+.reveal .slides { text-align: left; }
+
+// ---- content-slide chrome: title + thin rule, footer --------------------------------------
+.reveal .slides section > h2 {
+  margin: 0 0 0.5em 0;
+  padding-bottom: 0.18em;
+  border-bottom: 2px solid $shf-blue;
+  line-height: 1.15;
+}
+.reveal .footer { font-size: 0.42em; color: $muted; bottom: 10px; }
+.reveal .slide-number { font-size: 0.5em; color: $muted; background: transparent; }
+.reveal .muted { color: $muted; }
+.reveal .accent { color: $shf-blue; font-weight: 700; }
+.reveal .credits {
+  position: absolute; left: 0; bottom: 34px; width: 100%;
+  font-size: 0.36em; color: $muted; line-height: 1.25;
+}
+
+// ---- title slide ---------------------------------------------------------------------------
+.reveal .slides section.dtpf-title { height: 100%; }
+.reveal .dtpf-title > h2 { display: none; }
+.is-title .reveal .footer, .is-title .reveal .slide-number,
+.reveal-viewport.is-title .footer, .reveal-viewport.is-title .slide-number { display: none !important; }
+.reveal .dtpf-title .ttl {
+  margin-top: 118px; width: 1180px;
+  font-size: 1.12em; font-weight: 700; line-height: 1.25; color: $shf-blue;
+  letter-spacing: 0.01em;
+  padding-bottom: 0.5em; border-bottom: 2px solid $shf-blue;
+}
+.reveal .dtpf-title .authors { margin-top: 0.8em; font-size: 0.9em; }
+.reveal .dtpf-title .authors .speaker { text-decoration: underline; text-underline-offset: 0.18em; }
+.reveal .dtpf-title .affil { margin-top: 0.35em; font-size: 0.62em; color: $muted; line-height: 1.35; }
+.reveal .dtpf-title .venue { margin-top: 1.1em; font-size: 0.62em; color: $ink; line-height: 1.35; }
+.reveal .dtpf-title .logos { position: absolute; bottom: 0; right: 0; width: 470px; margin: 0; }
+.reveal .dtpf-title .logos img { width: 100%; margin: 0; }
+
+// ---- slide 1: four photo cards + three challenge boxes ------------------------------------
+.reveal .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 0.1em; }
+.reveal .card { margin: 0; }
+.reveal .card img {
+  width: 100%; height: 190px; object-fit: cover; margin: 0; display: block;
+  border-radius: 3px;
+}
+.reveal .card .lab { margin-top: 0.3em; font-size: 0.66em; font-weight: 700; color: $shf-blue; }
+.reveal .card .txt { font-size: 0.52em; line-height: 1.3; color: $ink; }
+
+.reveal .challenges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 0.55em; }
+.reveal .chal {
+  background: $panel; border-left: 4px solid $shf-blue; padding: 0.35em 0.6em 0.45em 0.6em;
+}
+.reveal .chal .head { font-size: 0.6em; font-weight: 700; color: $shf-blue; }
+.reveal .chal .eq { font-size: 0.62em; margin: 0.25em 0 0.2em 0; }
+.reveal .chal .why { font-size: 0.5em; line-height: 1.3; color: $ink; }
+.reveal .goal {
+  margin-top: 0.5em; font-size: 0.62em; line-height: 1.35;
+}
+.reveal .goal strong, .reveal .goal b { color: $shf-blue; }
+
+// MathJax SVG: keep the maths the colour of the surrounding text
+.reveal mjx-container[jax="SVG"] { color: inherit; }
+
+// ---- generic blocks (slides 2-4) ----------------------------------------------------------
+.reveal .twocol { display: grid; grid-template-columns: 500px 1fr; gap: 34px; align-items: center; }
+.reveal .colfig img { width: 100%; margin: 0; }
+.reveal .figcap { font-size: 0.55em; color: $muted; text-align: center; margin-top: 0.2em; }
+.reveal .eqblock { font-size: 0.9em; }
+.reveal .eqblock mjx-container[display="true"] { margin: 0.2em 0; text-align: left !important; }
+.reveal .defs { font-size: 0.68em; color: $ink; margin: 0.3em 0 0.6em 0; padding: 0.3em 0.5em; background: $panel; }
+.reveal .keypoints ul { margin: 0; padding-left: 1.1em; }
+.reveal .keypoints li { font-size: 0.66em; line-height: 1.35; margin-bottom: 0.35em; }
+.reveal .keypoints strong { color: $shf-blue; }
+
+.reveal .defsline { font-size: 0.8em; text-align: center; margin: 0 0 0.45em 0; }
+.reveal .twobox { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.reveal .box { padding: 0.25em 0.7em 0.4em 0.7em; background: $panel; }
+.reveal .box.bal { border-top: 4px solid $shf-blue; }
+.reveal .box.clo { border-top: 4px solid $vir-teal; }
+.reveal .boxhead { font-size: 0.66em; font-weight: 700; margin-bottom: 0.1em; }
+.reveal .box.bal .boxhead { color: $shf-blue; }
+.reveal .box.clo .boxhead { color: $vir-teal; }
+.reveal .box mjx-container[display="true"] { font-size: 0.9em; margin: 0.5em 0; }
+.reveal .boxfoot { font-size: 0.5em; color: $muted; line-height: 1.3; }
+.reveal .consequence { font-size: 0.74em; line-height: 1.5; margin-top: 0.9em; }
+.reveal .consequence strong { color: $shf-blue; }
+.reveal .refs { position: absolute; left: 0; bottom: 34px; font-size: 0.36em; color: $muted; }
+
+.reveal .mgrid { display: grid; grid-template-columns: 150px 1fr 44px 1.25fr; column-gap: 0; row-gap: 18px; margin-top: 0.3em; }
+.reveal .mhead { font-size: 0.62em; font-weight: 700; color: $muted; padding: 0 0.7em; }
+.reveal .mgrid > .mlab, .reveal .mgrid > .mcell, .reveal .mgrid > .marr { background: $panel; padding: 0.5em 0.75em; }
+.reveal .mlab { font-size: 0.78em; font-weight: 700; line-height: 1.3; display: flex; flex-direction: column; justify-content: center; }
+.reveal .mlab .msub { font-weight: 400; color: $ink; }
+.reveal .mlab.bulk { border-left: 5px solid $vir-purple; color: $vir-purple; }
+.reveal .mlab.intf { border-left: 5px solid $shf-blue; color: $shf-blue; }
+.reveal .marr { font-size: 0.8em; color: $muted; display: flex; align-items: center; justify-content: center; padding-left: 0 !important; padding-right: 0 !important; }
+.reveal .mcell { font-size: 0.72em; line-height: 1.6; display: flex; flex-direction: column; justify-content: space-between; }
+.reveal .mcell p { margin: 0; }
+.reveal .mcell .k { float: right; color: $muted; margin-left: 1em; }
+.reveal .mtot { margin-top: 0.35em; padding-top: 0.2em; border-top: 1.5px solid $ink; font-weight: 700; }
+.reveal .mtot .k { color: $shf-blue; }
+.reveal .msplit { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.reveal .mgrp { font-weight: 700; }
+.reveal .mbal .mgrp { color: $shf-blue; }
+.reveal .mclo .mgrp { color: $vir-teal; }
+.reveal .punch { font-size: 0.62em; line-height: 1.4; margin-top: 0.5em; padding-left: 0.6em; border-left: 4px solid $shf-blue; }
+
+// ---- slides 6-7: cut cells, space-time -----------------------------------------------------
+.reveal .ccgrid { display: grid; grid-template-columns: 560px 1fr; gap: 30px; align-items: start; }
+.reveal .ccleft img { width: 100%; margin: 0; }
+.reveal .ccmom { font-size: 0.62em; line-height: 1.45; margin-top: 0.5em; }
+.reveal .ccmom strong { color: $shf-blue; }
+.reveal .bmat { margin-top: 0.4em; padding: 0.2em 0.4em; background: $panel; border-left: 4px solid $shf-blue; }
+.reveal .bmat mjx-container[display="true"] { font-size: 0.62em; margin: 0.25em 0; }
+.reveal .cchead { font-size: 0.6em; font-weight: 700; color: $shf-blue; margin: 0.15em 0 0 0; }
+.reveal .cceq mjx-container[display="true"] { font-size: 0.66em; margin: 0.35em 0; text-align: left !important; }
+.reveal .ccnote { font-size: 0.5em; color: $muted; line-height: 1.4; margin-top: 0.5em; }
+.reveal .stfig { text-align: center; }
+.reveal .stfig img { height: 225px; margin: 0; }
+.reveal .stgrid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 30px; margin-top: 0.2em; }
+.reveal .stbul ul { margin: 0.2em 0 0 0; padding-left: 1.1em; }
+.reveal .stbul li { font-size: 0.56em; line-height: 1.4; margin-bottom: 0.2em; }
+.reveal .cceq.big mjx-container[display="true"] { font-size: 0.86em; margin: 0.45em 0; }
+.reveal .ccsmall { font-size: 0.56em; color: $ink; line-height: 1.45; }
+.reveal .blocks { margin-top: 0.6em; }
+.reveal .blocks img { width: 470px; margin: 0; }
+.reveal .stfig.big img { height: 285px; }
+.reveal .stcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 0.5em; }
+.reveal .stcard .cchead { font-size: 0.64em; }
+.reveal .stcard { background: $panel; border-top: 4px solid $shf-blue; padding: 0.4em 0.7em 0.6em 0.7em; }
+.reveal .stcard mjx-container[display="true"] { font-size: 0.82em; margin: 0.5em 0; }
+.reveal .stwhy { font-size: 0.6em; color: $ink; line-height: 1.35; }
+
+// ---- slides 8-9: Newton, representations -------------------------------------------------
+.reveal .nwgrid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 26px; align-items: start; }
+.reveal .rbox { background: $panel; border-left: 4px solid $shf-blue; padding: 0.1em 0.5em; }
+.reveal .rbox mjx-container[display="true"] { font-size: 0.7em; margin: 0.35em 0; }
+.reveal .rcap { font-size: 0.52em; color: $muted; line-height: 1.4; margin: 0.25em 0 0.3em 0; }
+.reveal img.nwloop { width: 82%; margin: 0.1em 0 0 0; }
+.reveal .nwright img { width: 100%; margin: 0; }
+.reveal .nwfacts ul { margin: 0.2em 0 0 0; padding-left: 1.1em; }
+.reveal .nwfacts li { font-size: 0.56em; line-height: 1.4; margin-bottom: 0.25em; }
+.reveal .rpfig { text-align: center; }
+.reveal .rpfig img { height: 255px; margin: 0; }
+.reveal .rpgrid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 30px; margin-top: 0.5em; align-items: start; }
+.reveal .rptext { font-size: 0.6em; line-height: 1.45; }
+.reveal .rptext ol { margin: 0.3em 0 0.4em 0; padding-left: 1.4em; }
+.reveal .rptext strong { color: $shf-blue; }
+.reveal .rptab table { font-size: 0.56em; width: 100%; border-collapse: collapse; }
+.reveal .rptab th { color: $muted; border-bottom: 1.5px solid $ink; padding: 0.2em 0.4em; text-align: left; }
+.reveal .rptab td { padding: 0.25em 0.4em; border-bottom: 1px solid #dde3ea; }
+.reveal .rptab tr:last-child td { color: $shf-blue; }
+.reveal .mdots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 0.35em; }
+.reveal .md { background: $panel; border-top: 3px solid $vir-teal; padding: 0.15em 0.45em 0.25em 0.45em; font-size: 0.52em; line-height: 1.5; }
+.reveal .md .mdh { font-weight: 700; color: $vir-teal; }
+
+// ---- take-home ------------------------------------------------------------------------------
+.reveal .thcols { display: grid; grid-template-columns: 1.25fr 1fr; gap: 44px; margin-top: 0.5em; }
+.reveal .thhead { font-size: 0.72em; font-weight: 700; color: $shf-blue; margin-bottom: 0.3em;
+  padding-bottom: 0.15em; border-bottom: 1.5px solid $shf-blue; }
+.reveal .thnextcol .thhead { color: $vir-teal; border-bottom-color: $vir-teal; }
+.reveal .thcol ul { margin: 0; padding-left: 1.1em; }
+.reveal .thcol li { font-size: 0.76em; line-height: 1.45; margin-bottom: 0.9em; }
+.reveal .thcol li strong { color: $shf-blue; }
+.reveal .thnextcol li strong { color: $vir-teal; }
+
+// ---- closing slide ---------------------------------------------------------------------------
+.reveal .dtpf-end .endthanks { margin-top: 150px; font-size: 1.9em; font-weight: 700; color: $shf-blue; }
+.reveal .dtpf-end .endq { font-size: 0.9em; color: $muted; margin-top: 0.1em; }
+.reveal .dtpf-end .endcontact { margin-top: 1.3em; font-size: 0.72em; line-height: 1.5;
+  padding-left: 0.6em; border-left: 4px solid $shf-blue; }
+.reveal .dtpf-end .endcontact a { color: $shf-blue; text-decoration: none; border-bottom: 1px solid $shf-blue; }
+
+// ---- backup + references ------------------------------------------------------------------------
+.reveal .bkgrid { display: grid; grid-template-columns: 520px 1fr; gap: 34px; align-items: center; }
+.reveal .bkfig img { width: 100%; margin: 0; }
+.reveal .bkgrid2 { display: grid; grid-template-columns: 560px 1fr; gap: 30px; align-items: start; }
+.reveal .bkfigs img { width: 100%; margin: 0 0 6px 0; }
+.reveal .bktxt ul { margin: 0; padding-left: 1.1em; }
+.reveal .bktxt li { font-size: 0.62em; line-height: 1.45; margin-bottom: 0.6em; }
+.reveal .bktxt strong { color: $shf-blue; }
+.reveal .bkcap { font-size: 0.5em; color: $muted; margin-top: 0.4em; }
+.reveal .bkcost table { font-size: 0.68em; width: 100%; border-collapse: collapse; margin-top: 0.3em; }
+.reveal .bkcost th { color: $muted; border-bottom: 1.5px solid $ink; padding: 0.25em 0.5em; text-align: left; }
+.reveal .bkcost td { padding: 0.45em 0.5em; border-bottom: 1px solid #dde3ea; vertical-align: top; }
+.reveal .bkcost td:first-child { font-weight: 700; color: $shf-blue; width: 27%; }
+.reveal .bkcost td:last-child { color: $muted; width: 26%; }
+.reveal .refsl ul { margin: 0 0 0.3em 0; padding-left: 1.1em; }
+.reveal .refsl li { font-size: 0.56em; line-height: 1.4; margin-bottom: 0.45em; }
+.reveal .refgrp { font-size: 0.6em; font-weight: 700; color: $shf-blue; margin: 0.2em 0 0.25em 0; }
+.reveal .apfig { text-align: center; }
+.reveal .apfig img { width: 100%; max-height: 330px; object-fit: contain; margin: 0; }
+.reveal .apbul ul { margin: 0.3em 0 0 0; padding-left: 1.1em; }
+.reveal .apbul li { font-size: 0.62em; line-height: 1.45; margin-bottom: 0.35em; }
+.reveal .apbul strong { color: $shf-blue; }
+.reveal img.cqconv { width: 100%; margin: 0.2em 0 0 0; }
+.reveal .bktxt li { font-size: 0.58em; margin-bottom: 0.4em; }
+// appendix and references: not counted, no slide number
+.is-appendix .reveal .slide-number, .reveal-viewport.is-appendix .slide-number { display: none !important; }
+
+// ---- results: slide 10 ------------------------------------------------------------------------
+.reveal .r10sub { font-size: 0.56em; color: $muted; line-height: 1.4; margin: -0.2em 0 0.2em 0; }
+.reveal .r10fig { text-align: center; }
+.reveal .r10fig img { width: 100%; max-height: 420px; object-fit: contain; margin: 0; }
+.reveal .r10cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 0.25em; }
+.reveal .r10card { background: $panel; border-top: 4px solid $shf-blue; padding: 0.3em 0.6em 0.4em 0.6em;
+  font-size: 0.6em; line-height: 1.4; }
+.reveal .r10card p { margin: 0; }
+.reveal .r10h { font-weight: 700; color: $shf-blue; font-size: 1.08em; }
+.reveal .r10eq { background: $panel; border-left: 4px solid $shf-blue; padding: 0.05em 0.5em; margin-top: 0.3em; }
+.reveal .r10eq mjx-container[display="true"] { font-size: 0.74em; margin: 0.3em 0; }
+.reveal .refs.refs2 { line-height: 1.35; width: 100%; font-size: 0.42em; }
+
+// ---- results: phase change with convection ----------------------------------------------------
+.reveal .rbgrid { display: grid; grid-template-columns: 390px 560px 1fr; gap: 18px; align-items: center; margin-top: -0.2em; }
+.reveal .rbvid video { display: block; max-height: 600px; }
+.reveal .rbfig img { width: 100%; max-height: 600px; object-fit: contain; margin: 0; }
+.reveal .rbtxt ul { margin: 0; padding-left: 1.1em; }
+.reveal .rbtxt li { font-size: 0.58em; line-height: 1.45; margin-bottom: 0.9em; }
+.reveal .rbtxt strong { color: $shf-blue; }
+
+// ---- gallery ----------------------------------------------------------------------------------
+.reveal .galtop { display: grid; grid-template-columns: 760px 1fr; gap: 22px; align-items: center; }
+.reveal .galv video, .reveal .galcell video { display: block; width: 100%; }
+.reveal .galrow { display: grid; grid-template-columns: auto auto auto 1fr; gap: 30px; margin-top: 0.6em; align-items: start; }
+.reveal .galcell { font-size: 0.5em; line-height: 1.35; }
+.reveal .galcell video { height: 255px; width: auto; margin-bottom: 0.3em; }
+.reveal .galcell { max-width: 360px; }
+.reveal .galcap { font-size: 0.56em; line-height: 1.4; }
+.reveal .galh { font-weight: 700; color: $shf-blue; }
+.reveal .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.reveal .g2col { text-align: center; }
+.reveal .g2col video { height: 240px; width: auto; display: block; margin: 0 auto; }
+.reveal .g2col img { height: 255px; width: auto; margin: 0.15em auto 0 auto; }
+.reveal .g2cap { font-size: 0.54em; line-height: 1.4; text-align: left; margin-top: 0.1em; }
+.reveal .stgrid2 { display: grid; grid-template-columns: 1.1fr 1fr; gap: 10px; align-items: center; margin-top: -0.3em; }
+.reveal .stl img, .reveal .str img { width: 100%; max-height: 455px; object-fit: contain; margin: 0; }
+.reveal .hygrid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px; align-items: center; margin-top: -0.2em; }
+.reveal .hyvid video { display: block; height: 490px; width: auto; margin: 0 auto; }
+.reveal .hyfig img { width: 100%; max-height: 470px; object-fit: contain; margin: 0; }
+.reveal .tbstrip { display: block; width: 100%; max-height: 540px; object-fit: contain; margin: 0.4em auto 0; }
+
+// ---- two-fluid definition (slide 3) -------------------------------------------------------------
+.reveal .tfdef { font-size: 0.74em; line-height: 1.35; padding: 0.2em 0.6em; border-left: 6px solid $shf-blue; background: $panel; }
+.reveal .tfdef .tfbig { font-size: 1.35em; font-weight: 700; color: $shf-blue; }
+.reveal .tfdef strong { color: $shf-blue; }
+.reveal .tfnot { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 0.35em 0 0.3em 0; }
+.reveal .tfn { font-size: 0.54em; line-height: 1.35; color: $ink; padding: 0.15em 0.5em; border-left: 3px solid $muted; }
+.reveal .tfn .tfnh { font-weight: 700; color: $muted; margin-right: 0.3em; }
+.reveal .twocol.tfcol { grid-template-columns: 400px 1fr; gap: 26px; }
+.reveal .tfcol .eqblock { font-size: 0.8em; }
+// ---- closures (slide 4) ---------------------------------------------------------------------------
+.reveal .cloname { font-size: 0.58em; line-height: 1.4; color: $ink; }
+.reveal .cloname strong { color: $vir-teal; }
+.reveal .ujump { font-size: 0.6em; margin-top: 0.45em; text-align: center; }
+// ---- space-time statement (slide 7) -----------------------------------------------------------------
+.reveal .sttime { font-size: 0.62em; line-height: 1.4; padding: 0.15em 0.6em; border-left: 5px solid $vir-teal; background: $panel; margin-bottom: 0.3em; }
+.reveal .sttime strong { color: $vir-teal; }
+// ---- thank-you paper ---------------------------------------------------------------------------------
+.reveal .dtpf-end .endpaper { margin-top: 1.1em; width: 900px; font-size: 0.5em; line-height: 1.4; color: $ink; }
+
+// ---- larger-text pass: layout adjustments --------------------------------------------------------
+.reveal .card img { height: 158px; }
+.reveal .box mjx-container[display="true"] { font-size: 0.8em; }
+.reveal .stfig.big img { height: 222px; }
+.reveal .stcard mjx-container[display="true"] { font-size: 0.74em; margin: 0.3em 0; }
+.reveal .stcards { margin-top: 0.3em; }
+.reveal img.nwloop { width: 100%; }
+.reveal .rpfig img { height: 200px; }
+.reveal .rpgrid { margin-top: 0.3em; }
+.reveal .hyvid video { height: 430px; }
+.reveal .hyfig img { max-height: 430px; }
+.reveal .g2col video { height: 250px; }
+.reveal .g2col img { height: 265px; }
+.reveal .rpfig img { height: 235px; }
+.reveal .nwright img { max-height: 365px; object-fit: contain; }
+.reveal .dtpf-end .endpaper { width: 760px; font-size: 0.44em; margin-top: 0.9em; }
+.reveal .dtpf-end .endpaper ul { margin: 0; padding-left: 1.1em; }
+.reveal .dtpf-end .endpaper li { margin-bottom: 0.25em; line-height: 1.3; }
+.reveal .dtpf-end .endpaper strong { color: $shf-blue; font-weight: 600; }
+.reveal .dtpf-end .endwith { color: $muted; }
+.reveal .twocol.tfcol { grid-template-columns: 370px 1fr; gap: 22px; }
+.reveal .tfcol .eqblock { font-size: 0.74em; }
+.reveal .tfcol .defs { font-size: 0.62em; }
+// references: two columns so the whole list fits
+.reveal .refsl ul { column-count: 2; column-gap: 34px; margin: 0; }
+.reveal .refsl li { font-size: 0.5em; line-height: 1.3; margin-bottom: 0.4em; break-inside: avoid; }
+// ---- two bubbles merging ------------------------------------------------------------------------
+.reveal .mgvid video { display: block; height: 520px; width: auto; margin: 0 auto; }
+// ---- closing slide: swarm animation ---------------------------------------------------------------
+.reveal .dtpf-end .endswarm { position: absolute; right: 30px; top: 128px; width: 230px; text-align: center; }
+.reveal .dtpf-end .endswarm img { width: 230px; height: auto; margin: 0; display: block; }
+.reveal .dtpf-end .endswcap { display: block; font-size: 0.36em; color: $muted; line-height: 1.25; margin-top: 0.3em; }
+// ---- slide split (2026-11-03): photos alone; challenges + aim; two-fluid definition; bulk equations ----
+.reveal .card img { height: 300px; }
+.reveal .card .lab { font-size: 0.8em; margin-top: 0.4em; }
+.reveal .card .txt { font-size: 0.64em; }
+.reveal .challenges.chbig { gap: 22px; margin-top: 0.8em; }
+.reveal .chbig .chal { padding: 0.6em 0.8em 0.8em 0.8em; }
+.reveal .chbig .chal .head { font-size: 0.8em; }
+.reveal .chbig .chal .eq { font-size: 0.86em; margin: 0.6em 0 0.5em 0; }
+.reveal .chbig .chal .why { font-size: 0.66em; line-height: 1.4; }
+.reveal .goal.goalbig { font-size: 0.8em; line-height: 1.45; margin-top: 1.4em; padding-left: 0.6em; border-left: 5px solid $shf-blue; }
+.reveal .tfrow { display: grid; grid-template-columns: 470px 1fr; gap: 40px; align-items: center; margin-top: 0.7em; }
+.reveal .tffig img { width: 100%; margin: 0; }
+.reveal .tfnot.tfnotcol { display: grid; grid-template-columns: 1fr; gap: 26px; margin: 0; }
+.reveal .tfnotcol .tfn { font-size: 0.72em; line-height: 1.45; padding: 0.3em 0.7em; border-left: 4px solid $muted; }
+.reveal .tfnotcol .tfnh { display: block; font-size: 1.1em; margin-bottom: 0.15em; }
+.reveal .twocol.bkeq { grid-template-columns: 440px 1fr; gap: 28px; margin-top: 0.4em; }
+.reveal .bkeq .eqblock { font-size: 0.84em; }
+.reveal .bkeq .defs { font-size: 0.66em; }
+.reveal .challenges.chbig { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.reveal .twocol.bkeq { grid-template-columns: 400px minmax(0, 1fr); gap: 26px; margin-top: 0.8em; }
+.reveal .bkeq .eqblock { font-size: 0.76em; }
+.reveal .bkeq .defs { font-size: 0.62em; }
+.reveal .bkeq .keypoints li { font-size: 0.66em; }
+// slide 5, larger text
+.reveal .twocol.bkeq { grid-template-columns: 330px minmax(0, 1fr); gap: 22px; margin-top: 0.9em; }
+.reveal .bkeq .eqblock { font-size: 0.86em; }
+.reveal .bkeq .defs { font-size: 0.72em; }
+.reveal .bkeq .keypoints li { font-size: 0.76em; }
+.reveal .bkeq .bkin { font-size: 0.74em; color: $shf-blue; font-weight: 700; margin-bottom: 0.1em; }
+// slide 6, larger text
+.reveal .defsline { font-size: 0.9em; margin-bottom: 0.6em; }
+.reveal .twobox { gap: 22px; }
+.reveal .boxhead { font-size: 0.78em; margin-bottom: 0.2em; }
+.reveal .box mjx-container[display="true"] { font-size: 0.9em; }
+.reveal .boxfoot { font-size: 0.6em; }
+.reveal .cloname { font-size: 0.66em; }
+.reveal .consequence { font-size: 0.86em; }
+.reveal .twobox { grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); gap: 18px; }
+.reveal .box { padding: 0.25em 0.55em 0.4em 0.55em; }
+.reveal .box mjx-container[display="true"] { font-size: 0.82em; }
+// slide 7 (causality), larger text
+.reveal .mgrid { row-gap: 22px; margin-top: 0.4em; grid-template-columns: 165px 1fr 44px 1.3fr; }
+.reveal .mhead { font-size: 0.72em; }
+.reveal .mlab { font-size: 0.88em; }
+.reveal .mcell { font-size: 0.8em; line-height: 1.55; }
+.reveal .marr { font-size: 0.9em; }
+.reveal .punch { font-size: 0.8em; margin-top: 0.7em; }
+// slide 8 (cut cells), larger text
+.reveal .ccmom { font-size: 0.76em; line-height: 1.45; margin-top: 0.6em; }
+.reveal .ccright .cchead { font-size: 0.78em; }
+.reveal .cceq.big mjx-container[display="true"] { font-size: 1.0em; margin: 0.5em 0; }
+.reveal .blocks img { width: 520px; }
+// slide 9 (space-time), larger text
+.reveal .sttime { font-size: 0.74em; }
+.reveal .stfig.big img { height: 240px; }
+.reveal .stcards { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; margin-top: 0.4em; }
+.reveal .stcard .cchead { font-size: 0.74em; }
+.reveal .stcard mjx-container[display="true"] { font-size: 0.86em; margin: 0.45em 0; }
+.reveal .stwhy { font-size: 0.68em; }
+.reveal .stfig.big img { height: 205px; }
+.reveal .stcard { padding: 0.25em 0.6em 0.35em 0.6em; }
+.reveal .stcard mjx-container[display="true"] { font-size: 0.8em; margin: 0.3em 0; }
+.reveal .sttime { margin-bottom: 0.15em; }
+.reveal .strow { display: grid; grid-template-columns: 350px minmax(0, 1fr); gap: 24px; align-items: center; margin-top: 0.2em; }
+.reveal .strow .sttime { font-size: 0.62em; line-height: 1.5; margin: 0; padding: 0.4em 0.7em; }
+.reveal .strow .stfig.big img { height: 250px; }
+.reveal .strow { grid-template-columns: 400px minmax(0, 1fr); gap: 20px; }
+.reveal .strow .sttime { font-size: 0.74em; line-height: 1.45; }
+.reveal .strow .stfig.big img { height: 240px; }
+// slide 10 (Newton), larger text
+.reveal .nwgrid { grid-template-columns: 1.2fr 1fr; gap: 22px; }
+.reveal .rbox mjx-container[display="true"] { font-size: 0.8em; }
+.reveal .md { font-size: 0.64em; }
+.reveal .rcap { font-size: 0.64em; }
+.reveal img.nwloop { width: 100%; margin-top: 0.3em; }
+.reveal .nwright img { max-height: 400px; }
+.reveal .rbox mjx-container[display="true"] { font-size: 0.76em; margin: 0.25em 0; }
+.reveal .rcap { margin: 0.2em 0 0.1em 0; }
+.reveal img.nwloop { width: auto; max-width: 100%; max-height: 282px; display: block; margin: 0.1em 0 0 0; }
+.reveal img.nwloop { max-height: 345px; margin-top: 0.5em; }
+.reveal img.nwloop { width: 97%; max-width: 97%; height: auto; max-height: none; margin-top: 0.4em; }
+// slide 11 (representations), larger text
+.reveal .rpgrid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 26px; }
+.reveal .rptext { font-size: 0.74em; }
+.reveal .rptab table { font-size: 0.68em; }
+.reveal .rpfig img { height: 225px; }
+.reveal .rpfig img { height: 205px; }
+.reveal .rptext { font-size: 0.7em; line-height: 1.4; }
+.reveal .rptext ol { margin: 0.2em 0 0.3em 0; }
+// rising bubble: larger rise-velocity / Sherwood figure
+.reveal .hygrid { grid-template-columns: 1fr 1fr; gap: 10px; }
+.reveal .hyvid video { height: 440px; }
+.reveal .hyfig img { max-height: 470px; height: 470px; width: auto; display: block; margin: 0 auto; }
+.reveal .hygrid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); margin-top: -0.4em; }
+.reveal .hygrid + .punch { font-size: 0.64em; margin-top: 0.1em; }
+.reveal .hyfig img { height: 490px; max-height: 490px; }
+.reveal .hyvid video { height: 450px; }
+.reveal .hygrid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+.reveal .hyvid video { height: 430px; }
+.reveal .hyfig img { height: auto; width: 100%; max-height: 440px; }
+.reveal .hygrid + .punch { font-size: 0.62em; margin-top: 0; }
+.reveal .g2ref { font-size: 0.4em; color: $muted; line-height: 1.3; text-align: left; margin-top: 0.4em; }
+.reveal .g2col video { height: 215px; }
+.reveal .g2col img { height: 240px; }
+.reveal .g2cap { margin-top: 0; }
+.reveal .noadv { font-size: 0.68em; margin-top: 0.45em; padding: 0.1em 0.6em; border-left: 4px solid $shf-blue; }
+.reveal .noadv strong { color: $shf-blue; }
+.reveal img.nwloop { width: 88%; max-width: 88%; margin-top: 0.3em; }
+.reveal img.nwloop { width: 80%; max-width: 80%; margin-top: 0.15em; }
+.reveal .noadv { margin-top: 0.35em; }
+.reveal .clodef { font-size: 0.56em; line-height: 1.4; color: $muted; margin: 0 0 0.35em 0; }
+.reveal .defsline { margin-bottom: 0.15em; }
+.reveal .defsline2 { font-size: 0.62em; color: $muted; text-align: center; margin: 0 0 0.5em 0; }
+.reveal .consequence { margin-top: 0.45em; }
+.reveal .twobox { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.reveal .clodef { font-size: 0.5em; margin-bottom: 0.25em; }
+.reveal .cloname { font-size: 0.6em; }
+.reveal .box mjx-container[display="true"] { margin: 0.4em 0; }
+// ---- all together: boiling bubble with a dissolved gas ----------------------------------------------
+.reveal .bovid video { display: block; width: 100%; max-height: 455px; margin: 0 auto; object-fit: contain; }
+.reveal .bovid + .punch { font-size: 0.66em; margin-top: 0.2em; }
+.reveal .bonote { position: absolute; left: 0; bottom: 34px; font-size: 0.42em; color: $muted; }
+// slide 10: the loop and then the convergence plot share the right column (r-stack)
+.reveal .nwgrid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 26px; align-items: start; }
+.reveal .nwright .r-stack { min-height: 470px; }
+.reveal img.nwloop2 { width: 100%; max-width: 100%; max-height: 470px; object-fit: contain; margin: 0.4em 0 0 0; }
+.reveal .nwplot img { width: 100%; max-height: 380px; object-fit: contain; margin: 0; }
+.reveal .nwright .r-stack > p, .reveal .nwright .r-stack > .nwplot { width: 100%; margin: 0; }
+// ---- appendix: coupled boiling algorithm ----------------------------------------------------------
+.reveal .apbo { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 26px; align-items: start; margin-top: 0.2em; }
+.reveal .apbovid video { display: block; height: 540px; width: auto; margin: 0 auto; }
+.reveal .apboright img { width: 100%; margin: 0.4em 0 0.3em 0; }
+.reveal .apboright .apbul li { font-size: 0.6em; line-height: 1.4; margin-bottom: 0.45em; }
+.reveal .apboeq { display: grid; grid-template-columns: 1.25fr 1fr; gap: 10px; align-items: center; margin-top: 0.3em; }
+.reveal .apboeq mjx-container[display="true"] { font-size: 0.78em; margin: 0.2em 0; }
+.reveal .apboX { font-size: 0.56em; color: $muted; line-height: 1.4; margin: 0.2em 0 0.5em 0; }
+// MathJax SVG draws every glyph with stroke="currentColor" stroke-width="0": invisible on screen, but a
+// zero-width stroke is a device hairline in PDF, which makes all the maths look bold. No stroke at all.
+.reveal mjx-container[jax="SVG"] svg g[stroke], .reveal mjx-container[jax="SVG"] svg [stroke-width="0"] { stroke: none !important; }
+// ---- appendix: why couple everything -------------------------------------------------------------
+.reveal .wycards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 0.5em; }
+.reveal .wycard { background: $panel; border-top: 4px solid $shf-blue; padding: 0.4em 0.7em 0.6em 0.7em; font-size: 0.6em; line-height: 1.4; }
+.reveal .wycard .wyh { display: block; font-weight: 700; color: $shf-blue; font-size: 1.15em; margin-bottom: 0.3em; }
+.reveal .wycard p { margin: 0 0 0.4em 0; }
+.reveal .wycard table { width: 100%; border-collapse: collapse; margin: 0.3em 0 0.4em 0; font-size: 0.95em; }
+.reveal .wycard th { color: $muted; border-bottom: 1.5px solid $ink; padding: 0.15em 0.3em; }
+.reveal .wycard td { padding: 0.2em 0.3em; border-bottom: 1px solid #dde3ea; }
+.reveal .wycards + .punch { margin-top: 0.8em; font-size: 0.66em; }
+.reveal .wycard { font-size: 0.72em; padding: 0.5em 0.8em 0.7em 0.8em; }
+.reveal .wycards { margin-top: 0.8em; gap: 22px; }
+.reveal .wycards + .punch { margin-top: 1.1em; font-size: 0.74em; }
+.reveal .wycard .wybig { font-size: 1.35em; text-align: center; margin: 0.4em 0 0.5em 0; color: $ink; }
+.reveal .wybul ul { margin: 0.7em 0 0 0; padding-left: 1.1em; }
+.reveal .wybul li { font-size: 0.66em; line-height: 1.4; margin-bottom: 0.35em; }
+.reveal .wybul strong { color: $shf-blue; }
+.reveal .wycards + .wybul + .punch, .reveal .wybul + .punch { margin-top: 0.6em; font-size: 0.7em; }
+.reveal .wycard .wyencart { background: #ffffff; border-left: 4px solid $vir-teal; padding: 0.35em 0.6em; margin: 0.1em 0 0.6em 0; }
+.reveal .wycard .wyencart p { margin: 0; }
+.reveal .wycard .wyencart strong { color: $vir-teal; }
+.reveal .wycard { font-size: 0.66em; }
+.reveal .wycards { margin-top: 0.5em; }
+.reveal .wybul ul { margin-top: 0.5em; }
+// ---- Newton slide: Frank sphere animation (slide 10) ----------------------------------------------
+.reveal .nwgif { margin-top: 0.4em; text-align: center; }
+.reveal .nwgif img { height: 240px; width: auto; margin: 0 auto; display: block; }
